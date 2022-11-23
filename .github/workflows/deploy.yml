@@ -13,8 +13,8 @@ jobs:
       - name: Install and Build
         run: |
           npm i -g pnpm@7
-          cd playground
           pnpm i
+          cd playground
           pnpm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
