@@ -17,6 +17,7 @@ jobs:
           pnpm run build
           cd playground
           pnpm run build
+          cd ..
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
