@@ -101,7 +101,7 @@ import Content from './Content.vue'
 const vnode = h(Content)
 ```
 
-通过 render 方法将一个 VNode 渲染至 DOM 中，其中我们的目的需要执行组件的逻辑，不需要将组件渲染进页面的 DOM 树中，因此只需要在内存中准备一个空的容器放置组件的 DOM 即可
+通过 render 方法将一个 VNode 渲染至 DOM 中，其中我们的目的是需要执行组件的逻辑，不需要将组件渲染进页面的 DOM 树中，因此只需要在内存中准备一个空的容器放置组件的 DOM 即可
 
 ```ts
 import { h, render } from 'vue'
@@ -221,7 +221,7 @@ const MyComponent: Component = {
 </template>
 ```
 
-自此实现完成。
+至此实现完成。
 
 上面代码演示了思路，代码比较简陋需完善，有一个正在使用的例子是 
 
