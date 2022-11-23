@@ -185,7 +185,7 @@ const onSubmit = async () => {
 import { getCurrentInstance, h } from 'vue'
 import type { Component } from 'vue'
 
-const myComponent: Component = {
+const MyComponent: Component = {
   props: ['is'],
   setup(props) {
     const instance = getCurrentInstance() as any
@@ -216,7 +216,7 @@ const myComponent: Component = {
 
 <template>
   <RouterView v-slot="{ Component }">
-    <myComponent :is="Component"></myComponent>
+    <MyComponent :is="Component"></MyComponent>
   </RouterView>
 </template>
 ```
