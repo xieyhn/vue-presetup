@@ -1,7 +1,8 @@
 {
   "name": "playground",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "vue": "^3.2.45",
