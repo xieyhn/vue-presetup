@@ -16,7 +16,7 @@ jobs:
           pnpm i
           pnpm run build
           cd playground
-          pnpm run build
+          pnpm run build --base=/vue-presetup/
           cd ..
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
