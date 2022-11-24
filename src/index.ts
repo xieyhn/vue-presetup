@@ -12,7 +12,7 @@ export function preSetupComponent<T = unknown>(component: Component) {
   return new Promise<T>((resolve, reject) => {
     if (!component.name) {
       console.warn(
-        `[vue-preup] Component need to have a 'name' attribute.`
+        `[vue-presetup] Missing Component \`name\` attribute.`
       )
       return
     }
