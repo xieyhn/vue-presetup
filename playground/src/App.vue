@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { PreSetupView } from 'vue-presetup'
+import { PresetupView } from 'vue-presetup'
 </script>
 
 <template>
   <RouterView v-slot="{ Component }">
-    <PreSetupView :component="Component"></PreSetupView>
+    <PresetupView :component="Component"></PresetupView>
   </RouterView>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

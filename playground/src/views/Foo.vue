@@ -1,6 +1,6 @@
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
-import { preSetupComponent } from 'vue-presetup'
+import { setupComponent } from 'vue-presetup'
 import router from '../router'
 
 export default defineComponent({
@@ -9,7 +9,7 @@ export default defineComponent({
     const message = ref('')
     const go = async () => {
       message.value = 'Presetup `Bar` Component...'
-      await preSetupComponent((await import('./Bar.vue')).default)
+      await setupComponent((await import('./Bar.vue')).default)
       router.push('/bar')
     }
     return {

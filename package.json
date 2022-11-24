@@ -1,6 +1,6 @@
 {
   "name": "vue-presetup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Preload Vue Component.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/haiya6/vue-presetup#readme",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "tsup": "^6.5.0",
     "typescript": "^4.9.3",
     "vue": "^3.2.45"

@@ -1,17 +1,12 @@
 <script lang="ts">
 import { ref, onMounted, defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import type { PreSetupPromiseProp } from 'vue-presetup'
+import { useContext } from 'vue-presetup'
 
 export default defineComponent({
   name: 'bar',
-  props: {
-    preSetupPromise: {
-      type: Object as PropType<PreSetupPromiseProp>
-    }
-  },
-  setup(props) {
+  setup() {
     const message = ref('Loading...')
+    const context = useContext()
 
     const reload = () => {
       window.location.reload()
@@ -20,7 +15,7 @@ export default defineComponent({
     onMounted(() => {
       window.setTimeout(() => {
         message.value = 'Complete.'
-        props.preSetupPromise?.resolve()
+        context.resolve()
       }, 1500)
     })
 
