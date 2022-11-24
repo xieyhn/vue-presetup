@@ -1,4 +1,3 @@
-import { NOOP } from '@vue/shared'
 import { h, render, defineComponent, getCurrentInstance } from 'vue'
 import type { VNode, PropType, Component } from 'vue'
 
@@ -21,6 +20,7 @@ interface UseContextResult {
 
 const COMPONENT_KEPT_ALIVE = 1 << 9
 const CONTEXT_KEY = Symbol('VUE_PRESETUP_CONTEXT_KEY')
+const NOOP = () => {}
 
 const cache = new Map<string, VNode>()
 
