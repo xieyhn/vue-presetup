@@ -1,29 +1,28 @@
-<script lang="ts">
-import { ref, defineComponent } from 'vue'
-import { setupComponent } from 'vue-presetup'
+<script lang="ts" setup>
+import { ref } from 'vue'
+// import { setupComponent } from 'vue-presetup'
+import { ElButton } from 'element-plus'
 import router from '../router'
+// import Bar from './Bar.vue'
 
-export default defineComponent({
-  name: 'foo',
-  setup() {
-    const message = ref('')
-    const go = async () => {
-      message.value = 'Presetup `Bar` Component...'
-      await setupComponent((await import('./Bar.vue')).default)
-      router.push('/bar')
-    }
-    return {
-      message,
-      go
-    }
-  }
+defineOptions({
+  name: 'foo'
 })
+
+const loading = ref(false)
+
+const go = async () => {
+  loading.value = true
+  // await setupComponent(Bar)
+  router.push('/bar')
+}
+
 </script>
 
 <template>
   <div class="Foo">
     <h1>Foo.vue</h1>
-    <button @click="go">Go Bar</button>
-    <p>{{ message }}</p>
+    <p>{{ $t('FOO_MESSAGE') }}</p>
+    <ElButton type="primary" @click="go" :loading="loading">Go</ElButton>
   </div>
 </template>

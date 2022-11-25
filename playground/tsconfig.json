@@ -13,7 +13,9 @@
     "jsx": "preserve",
     "skipDefaultLibCheck": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "element-plus/global",
+      "unplugin-vue-macros/macros-global"
     ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "vue-presetup",
   "version": "0.0.4",
-  "description": "Preload Vue Component.",
+  "description": "presetup Vue component.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "scripts": {

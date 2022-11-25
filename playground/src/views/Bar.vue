@@ -1,36 +1,68 @@
-<script lang="ts">
-import { ref, onMounted, defineComponent } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 import { useContext } from 'vue-presetup'
+import { ElTable, ElTableColumn, ElLoading } from 'element-plus'
 
-export default defineComponent({
-  name: 'bar',
-  setup() {
-    const message = ref('Loading...')
-    const context = useContext()
+interface Record {
+  date: string
+  name: string
+  address: string
+}
 
-    const reload = () => {
-      window.location.reload()
-    }
+const getTableData = async (): Promise<Record[]> => {
+  // Simulate some blocking behavior
+  await new Promise(resolve => window.setTimeout(resolve, 1200))
 
-    onMounted(() => {
-      window.setTimeout(() => {
-        message.value = 'Complete.'
-        context.resolve()
-      }, 1500)
-    })
+  return [
+    {
+      date: '2016-05-03',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-02',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-04',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-01',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+  ]
+}
 
-    return {
-      message,
-      reload
-    }
-  }
+defineOptions({
+  name: 'bar'
+})
+
+const vLoading = ElLoading.directive
+const loading = ref(true)
+const records = ref<Record[]>([])
+const context = useContext()
+
+getTableData().then(data => {
+  records.value = data
+  loading.value = false
+
+  // Is ready
+  context.resolve()
 })
 </script>
 
 <template>
   <div class="Bar">
     <h1>Bar.vue</h1>
-    <h2>{{ message }}</h2>
-    <button @click="reload">reload</button>
+    <p>{{ $t('BAR_MESSAGE') }}</p>
+    <ElTable v-loading="loading" :data="records" style="width: 800px; margin-top: 20px;">
+      <ElTableColumn prop="date" label="Date" width="180" />
+      <ElTableColumn prop="name" label="Name" width="180" />
+      <ElTableColumn prop="address" label="Address" />
+    </ElTable>
   </div>
 </template>

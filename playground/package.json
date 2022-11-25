@@ -5,12 +5,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "element-plus": "^2.2.22",
     "vue": "^3.2.45",
-    "vue-presetup": "workspace:^0.0.0",
+    "vue-i18n": "^9.2.2",
+    "vue-presetup": "workspace:^0.0.4",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
+    "unplugin-vue-macros": "^1.0.2",
     "vite": "^3.2.4"
   }
 }
