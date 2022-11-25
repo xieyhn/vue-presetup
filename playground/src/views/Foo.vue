@@ -1,22 +1,22 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-// import { setupComponent } from 'vue-presetup'
+import { useSetupComponent } from 'vue-presetup'
 import { ElButton } from 'element-plus'
 import router from '../router'
-// import Bar from './Bar.vue'
+import Bar from './Bar.vue'
 
 defineOptions({
   name: 'foo'
 })
 
+const { setupComponent } = useSetupComponent()
 const loading = ref(false)
 
 const go = async () => {
   loading.value = true
-  // await setupComponent(Bar)
+  await setupComponent(Bar)
   router.push('/bar')
 }
-
 </script>
 
 <template>
