@@ -122,3 +122,7 @@ const go = async () => {
   </div>
 </template>
 ```
+
+## License
+
+[MIT](https://github.com/haiya6/vite-plugin-html-resolve-alias/blob/main/LICENSE)
