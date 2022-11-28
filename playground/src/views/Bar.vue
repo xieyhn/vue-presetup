@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useContext } from 'vue-presetup'
 import { ElTable, ElTableColumn, ElLoading } from 'element-plus'
+import Counter from '../components/Counter.vue'
 
 interface Record {
   date: string
@@ -58,6 +59,9 @@ getTableData().then(data => {
 <template>
   <div class="Bar">
     <h1>Bar.vue</h1>
+    <Counter />
+    <br />
+    <br />
     <p>{{ $t('BAR_MESSAGE') }}</p>
     <ElTable v-loading="loading" :data="records" style="width: 800px; margin-top: 20px;">
       <ElTableColumn prop="date" label="Date" width="180" />
