@@ -153,9 +153,9 @@ pnpm install vue-presetup -S
 
 Type: Component
 
-Props:
+Props：
 
-	+ `active`: 期望渲染的 VNode
++ `active`: 期望渲染的 VNode
 
 ### useSetupComponent
 
@@ -219,8 +219,6 @@ Params:
    </script>
    ```
 
-   TODO: useContext
-
 ### useContext
 
 Type: Hook
@@ -251,7 +249,21 @@ interface UseContextResult {
 
 Params:
 
-	+ name: 被移除组件的 name
++ `name`: 被移除组件的 name
+
+```vue
+<script setup lang="ts">
+import { useSetupComponent, removeComponent } from 'vue-presetup'
+import Bar from './Bar.vue'
+
+const { setupComponent } = useSetupComponent()
+
+const next = async () => {
+    await setupComponent(Bar, /* props */)
+    removeComponent(Bar.name)
+}
+</script>
+```
 
 ## License
 
