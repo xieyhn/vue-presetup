@@ -27,12 +27,13 @@ const cache = new Map<string, {
 }>()
 
 export const PresetupView = defineComponent({
+  name: 'PresetupView',
   props: {
-    component: {
+    active: {
       type: Object as PropType<VNode>
     }
   },
-  setup(props) {
+  setup(props, { slots }) {
     const instance = getCurrentInstance()!
 
     // @ts-expect-error
@@ -41,15 +42,23 @@ export const PresetupView = defineComponent({
     }
 
     return () => {
-      const { component } = props
-      if (!component)
+      const { active } = props
+
+      const normalizeSlot = (vnode: VNode) => {
+        if (slots.default) {
+          return slots.default({ Component: vnode })
+        }
+        return vnode
+      }
+
+      if (!active)
         return null
-      const name = typeof component.type === 'object' ? (component.type as Component).name : ''
+      const name = typeof active.type === 'object' ? (active.type as Component).name : ''
       if (!name || !cache.has(name))
-        return component
+        return normalizeSlot(active)
       const data = cache.get(name)!
       cache.delete(name)
-      return data.vnode
+      return normalizeSlot(data.vnode)
     }
   }
 })
@@ -58,7 +67,7 @@ export function useContext(): UseContextResult {
   const instance = getCurrentInstance()
   if (!instance)
     console.warn(`[vue-presetup] useContext() called without active instance.`)
-  
+
   // @ts-expect-error
   const context: Partial<PresetupContext> = instance?.vnode?.[CONTEXT_KEY] ?? {}
 

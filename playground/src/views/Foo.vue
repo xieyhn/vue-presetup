@@ -28,6 +28,6 @@ const go = async () => {
     <br />
     <br />
     <p>{{ $t('FOO_MESSAGE') }}</p>
-    <ElButton type="primary" @click="go" :loading="loading">Go Bar</ElButton>
+    <ElButton type="primary" @click="go" :loading="loading">Go to /bar</ElButton>
   </div>
 </template>
