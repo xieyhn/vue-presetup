@@ -1,10 +1,10 @@
 # vue-presetup
 
-> 仅适用于 Vue3。
+> 仅适用于 Vue3
 
-vue-presetup 可以将指定的 Vue 组件进行提前加载，并在组件“准备好”后再进行下一步操作。
+vue-presetup 可以将指定的 Vue 组件进行提前加载，并在组件“准备好”后再进行下一步操作，
 
-> 如从当前路由 /foo 跳转至 /bar 时，可以先提前在 /foo 页面加载 /bar 对应的组件，随后再进行路由切换
+如从当前路由 /foo 跳转至 /bar 时，可以先提前在 /foo 页面加载 /bar 对应的组件，随后再进行路由切换
 
 ## 安装
 
@@ -28,11 +28,11 @@ pnpm install vue-presetup -S
 
 ## 基础使用示例
 
-有一个简单的使用示例，这个示例是摘自 [playground](./playground) 中的。
+有一个简单的使用示例，这个示例是摘自 [playground](./playground) 中的
 
-1. 有以下的路由配置：
+1. 有以下的路由配置
 
-   router.ts
+   **router.ts**
 
    ```ts
    import { createRouter, createWebHashHistory } from 'vue-router'
@@ -60,9 +60,9 @@ pnpm install vue-presetup -S
    export default router
    ```
 
-2. 在 App.vue 使用路由并放置 vue-presetup 需要的载体：
+2. 在 App.vue 使用路由并放置 vue-presetup 需要的载体
 
-   App.vue
+   **App.vue**
 
    ```vue
    <script setup lang="ts">
@@ -76,9 +76,9 @@ pnpm install vue-presetup -S
    </template>
    ```
 
-3. 在可能被提前加载的 /bar 组件需要做一些反馈，来告知当前组件什么时候准备好（实际情况可能是首屏数据加载好了等）
+3. 在可能被提前加载的 /bar 组件需要做一些反馈，来告知当前组件什么时候准备好（实际情况可能是首屏数据加载好了啥的）
 
-   Bar.vue
+   **Bar.vue**
 
    ```vue
    <script lang="ts" setup>
@@ -100,9 +100,9 @@ pnpm install vue-presetup -S
    </template>
    ```
 
-4. 接下来，就可以实现在 /foo 中提前加载 /bar 组件
+4. 接下来，就可以实现在 /foo 中提前加载 /bar 对应的组件
 
-   Foo.bar
+   **Foo.bar**
 
    ```vue
    <script lang="ts" setup>
@@ -130,7 +130,7 @@ pnpm install vue-presetup -S
 
 ## 与 Transition、KeepAlive 一起使用
 
-编辑上述示例中 App.vue
+编辑上述示例中 **App.vue**
 
 ```vue
 <script> /* ... */ </script>
