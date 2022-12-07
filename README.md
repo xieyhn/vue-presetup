@@ -163,7 +163,7 @@ Type: Hook
 
 Return: { setupComponent }
 
-> 这是一个 Vue3 Hook，因此只能在 setup 函数中使用。
+> 这是一个 Vue3 Hook，因此只能在 setup 函数中使用
 
 ```vue
 <script setup lang="ts">
@@ -225,7 +225,7 @@ Type: Hook
 
 Return Context
 
-> 这是一个 Vue3 Hook，因此只能在 setup 函数中使用。
+> 这是一个 Vue3 Hook，因此只能在 setup 函数中使用
 
 用在可能会被预加载的组件中，如基础使用示例的 Bar.vue
 
